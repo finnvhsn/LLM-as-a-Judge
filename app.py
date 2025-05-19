@@ -1,4 +1,5 @@
 from main import graph
+from langchain_core.messages import AIMessage
 
 def stream_graph_updates(user_input: str, thread_id: str):
     config = {"configurable": {"thread_id": thread_id}}
@@ -8,7 +9,8 @@ def stream_graph_updates(user_input: str, thread_id: str):
         config,
         stream_mode="values",
     ):
-        print("Assistant:", event["messages"][-1].content)
+        if isinstance (event["messages"] [-1], AIMessage ): 
+            print("Assistant:", event["messages"][-1].content)
 
 if __name__ == "__main__":
     thread_id = input("🧠 Konversations-ID (z. B. '1'): ").strip() or "1"
