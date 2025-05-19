@@ -9,8 +9,14 @@ def stream_graph_updates(user_input: str, thread_id: str):
         config,
         stream_mode="values",
     ):
-        if isinstance (event["messages"] [-1], AIMessage ): 
-            print("Assistant:", event["messages"][-1].content)
+        last_msg = event ["messages"][-1]
+        
+        if isinstance (last_msg, AIMessage):
+            content = last_msg.content
+            
+            if isinstance(content, list) and all(isinstance(c, dict) and c.get("type") == "tool_use" for c in content):
+                continue
+            print("Assistant:", content)
 
 if __name__ == "__main__":
     thread_id = input("🧠 Konversations-ID (z. B. '1'): ").strip() or "1"
