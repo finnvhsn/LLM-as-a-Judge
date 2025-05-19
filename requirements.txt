@@ -1,0 +1,16 @@
+langchain
+langchain-anthropic
+langchain-core==0.3.60
+langchain-tavily #To be screened
+langgraph-sdk
+langgraph-checkpoint==2.0.26
+langgraph-prebuilt==0.1.8
+
+
+langsmith==0.3.42
+python-dotenv
+typing_extensions>=4.10.0
+pydantic>=2.0.0
+orjson
+httpx
+
