@@ -1,7 +1,8 @@
 langchain
 langchain-anthropic
 langchain-core==0.3.60
-langchain-tavily #To be screened
+#langchain-tavily #To be screened
+langgraph
 langgraph-sdk
 langgraph-checkpoint==2.0.26
 langgraph-prebuilt==0.1.8
